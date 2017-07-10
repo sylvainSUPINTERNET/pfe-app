@@ -23,6 +23,35 @@
 <p>{{main.test}}</p>
 {% endverbatim %}
 
+
+{#
+
+{{ dump(dataRender) }}
+
+<br>
+<br>
+{{ dump(test) }}
+<br>
+<br>
+
+{{ test[0]['firstname'] }}
+{% for item in test[1] %}
+    {{ item }}
+{% endfor %}
+
+
+#}
+
+
+<!-- return data -->
+{% for i in 0..test.length - 1 %}
+    <div class="card">
+        <div class="card-block">
+            <h4 class="card-title">{{ test[i]['firstname'] |capitalize}}</h4>
+        </div>
+    </div>
+{% endfor %}
+
 </body>
 
 <script>

@@ -41,7 +41,6 @@ app.get('/', function (req, res, next) {
 });
 
 
-
 //REGISTER
 
 var security = require('./security/security');
@@ -53,14 +52,14 @@ var current_session;
 
 //Verification de l'existance du token sur toutes les routes de l'api !
 /*
-app.use('/api/*', function (req, res, next) {
-    if (!req.session.token) {
-        res.redirect('/signUp');
-    } else {
-        next();
-    }
-});
-*/
+ app.use('/api/*', function (req, res, next) {
+ if (!req.session.token) {
+ res.redirect('/signUp');
+ } else {
+ next();
+ }
+ });
+ */
 
 
 //Inscription
@@ -180,18 +179,6 @@ app.get('/signOut', function (req, res) {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //REVOIR LES ROUTES cote server pour ajouter le token DANS l'url pour permettre de faire des calls DEPUIS ICI sinon ca va renvoyer le redirect
 
 app.get('/test', function (req, res, next) {
@@ -199,9 +186,11 @@ app.get('/test', function (req, res, next) {
     var options = {
         host: 'localhost',
         port: 8000,
-        path: '/api/getUsers/'+current_session.token,
+        path: '/api/getUsers/' + current_session.token,
         json: true
     };
+
+    var dataRender = "";
     console.log("TOKEN ACTUEL" + current_session.token);
     http_request.get(options, function (resp) {
 
@@ -209,23 +198,40 @@ app.get('/test', function (req, res, next) {
 
         resp.setEncoding('utf-8');
         resp.on('data', function (chunk) {
-            //console.log("chunk => " + chunk);
             console.log("chunk => " + chunk);
             body += chunk.toString();
         });
 
         resp.on("end", function () {
             var data = JSON.parse(body);
-            console.log(data.data);
+
+            //console.log(data.data);
+
+            //TRANSFORMER LE DATARENDER en tableau pour l'exploiter sur le twig !
+            dataRender += body; //data renvoyer au format json;
+
+            //ici enlever body et mettre data à la place
+
+
+
+            res.render('test.twig', {
+                message: "Hello World",
+                dataRender: dataRender,
+                test: data,
+                error: ""
+            });
         });
 
     }).on("error", function (e) {
         console.log("Got error: " + e.message);
+
+        res.render('test.twig', {
+            message: "Hello World",
+            error : e.message,
+        });
     });
 
-    res.render('test.twig', {
-        message: "Hello World"
-    });
+
 });
 
 
