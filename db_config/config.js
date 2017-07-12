@@ -3,10 +3,10 @@ var mysql = require('mysql');
 
 //Definie your parameters to use DB - MYSQL
 var Db = function () {
-    this.login = "";  //root
+    this.login = "root";  //root
     this.password = "";   // ""
-    this.localhost = "";   //localhost
-    this.database = "";     // your db (apipfe c'est la mienne)
+    this.localhost = "localhost";   //localhost
+    this.database = "apipfe";     // your db (apipfe c'est la mienne)
 }; //class Db
 
 
