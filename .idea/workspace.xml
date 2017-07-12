@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="01f5df06-4364-4514-ba5d-e861c34e8264" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db_config/config.js" afterPath="$PROJECT_DIR$/db_config/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/test.twig" afterPath="$PROJECT_DIR$/views/test.twig" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -289,12 +286,12 @@
       <workItem from="1498959473696" duration="159000" />
       <workItem from="1499008894255" duration="1497000" />
       <workItem from="1499676405860" duration="259000" />
-      <workItem from="1499684920243" duration="4068000" />
+      <workItem from="1499684920243" duration="4648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17399000" />
+    <option name="totallyTimeSpent" value="17979000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="772" extended-state="0" />
